@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab07.EditorController"
+            prefWidth="760" prefHeight="500">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="Файл">
+                        <items>
+                            <MenuItem fx:id="miNew" text="Новый" onAction="#onNew"/>
+                            <MenuItem fx:id="miOpen" text="Открыть..." onAction="#onOpen"/>
+                            <MenuItem fx:id="miSave" text="Сохранить" onAction="#onSave"/>
+                            <MenuItem fx:id="miSaveAs" text="Сохранить как..." onAction="#onSaveAs"/>
+                            <SeparatorMenuItem/>
+                            <!-- Вариант 12: меню последних команд (заполняется в контроллере) -->
+                            <Menu fx:id="menuRecent" text="Недавние команды"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Выход" onAction="#onExit"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Правка">
+                        <items>
+                            <MenuItem fx:id="miUndo" text="Отменить" onAction="#onUndo"/>
+                            <MenuItem fx:id="miRedo" text="Повторить" onAction="#onRedo"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem fx:id="miCut" text="Вырезать" onAction="#onCut"/>
+                            <MenuItem fx:id="miCopy" text="Копировать" onAction="#onCopy"/>
+                            <MenuItem fx:id="miPaste" text="Вставить" onAction="#onPaste"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem fx:id="miSelectAll" text="Выделить всё" onAction="#onSelectAll"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Справка">
+                        <items>
+                            <MenuItem text="О программе" onAction="#onAbout"/>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <ToolBar>
+                <items>
+                    <Button text="Новый" onAction="#onNew"/>
+                    <Button text="Открыть" onAction="#onOpen"/>
+                    <Button text="Сохранить" onAction="#onSave"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Button text="Отменить" onAction="#onUndo"/>
+                    <Button text="Повторить" onAction="#onRedo"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Button text="Копировать" onAction="#onCopy"/>
+                </items>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <TextArea fx:id="txtEditor" wrapText="true">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem text="Вырезать" onAction="#onCut"/>
+                        <MenuItem text="Копировать" onAction="#onCopy"/>
+                        <MenuItem text="Вставить" onAction="#onPaste"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Выделить всё" onAction="#onSelectAll"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TextArea>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <padding>
+                <Insets top="4" right="8" bottom="4" left="8"/>
+            </padding>
+            <Label fx:id="lblStatus" text="Символов: 0"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblInfo" text="Строк: 1 | Слов: 0 | Сохранён"/>
+        </HBox>
+    </bottom>
+</BorderPane>

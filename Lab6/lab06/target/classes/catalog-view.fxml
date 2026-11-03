@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab06.CatalogController">
+
+    <top>
+        <VBox spacing="10">
+            <padding><Insets top="12" right="12" bottom="8" left="12"/></padding>
+            <Label text="Каталог игр" styleClass="title-label"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtSearch" promptText="Поиск по названию" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="cmbFilterGenre" prefWidth="180"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="6">
+            <padding><Insets top="0" right="0" bottom="0" left="12"/></padding>
+            <Label text="Жанры"/>
+            <ListView fx:id="listGenres" prefWidth="140" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+
+    <center>
+        <TableView fx:id="tableGames">
+            <BorderPane.margin><Insets left="10" right="12"/></BorderPane.margin>
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colName" text="Название"/>
+                <TableColumn fx:id="colGenre" text="Жанр"/>
+                <TableColumn fx:id="colPlatform" text="Платформа"/>
+                <TableColumn fx:id="colRating" text="Рейтинг"/>
+                <TableColumn fx:id="colLink" text="Ссылка" sortable="false"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+            <padding><Insets top="10" right="12" bottom="12" left="12"/></padding>
+            <GridPane hgap="10" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Жанр:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="cmbGenre" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label text="Платформа:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbPlatform" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Рейтинг (0–10):" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtRating" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+            </GridPane>
+            <HBox spacing="10">
+                <Button text="Добавить" onAction="#onAddClick"/>
+                <Button text="Удалить" onAction="#onDeleteClick"/>
+                <Button text="Очистить фильтр" onAction="#onClearFilterClick"/>
+            </HBox>
+            <Label fx:id="lblCount" text="Найдено записей: 0"/>
+        </VBox>
+    </bottom>
+</BorderPane>

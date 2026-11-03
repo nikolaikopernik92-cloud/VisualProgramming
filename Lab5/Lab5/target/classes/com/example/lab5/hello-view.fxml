@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" alignment="TOP_CENTER"
+      style="-fx-background-color: #0f172a; -fx-font-family: 'Segoe UI', Helvetica, Arial, sans-serif;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.lab5.HelloController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Заголовок -->
+    <Label text="АНКЕТА СТУДЕНТА"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #a855f7;"/>
+
+    <!-- Карточка с основными полями -->
+    <VBox spacing="10" style="-fx-background-color: #1e293b; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #334155; -fx-border-radius: 10;">
+        <GridPane hgap="10" vgap="10">
+            <Label text="ФИО*:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+            <TextField fx:id="txtFullName" promptText="Введите ФИО" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                       style="-fx-background-color: #0f172a; -fx-text-fill: #f8fafc; -fx-prompt-text-fill: #64748b; -fx-background-radius: 6; -fx-border-color: #475569; -fx-border-radius: 6;"/>
+
+            <Label text="Email*:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+            <TextField fx:id="txtEmail" promptText="example@mail.com" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                       style="-fx-background-color: #0f172a; -fx-text-fill: #f8fafc; -fx-prompt-text-fill: #64748b; -fx-background-radius: 6; -fx-border-color: #475569; -fx-border-radius: 6;"/>
+
+            <Label text="Группа*:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+            <TextField fx:id="txtGroup" promptText="ИТ-21" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                       style="-fx-background-color: #0f172a; -fx-text-fill: #f8fafc; -fx-prompt-text-fill: #64748b; -fx-background-radius: 6; -fx-border-color: #475569; -fx-border-radius: 6;"/>
+
+            <Label text="Город:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+            <ComboBox fx:id="cbCity" promptText="Выберите город" GridPane.rowIndex="3" GridPane.columnIndex="1" maxWidth="Infinity"
+                      style="-fx-background-color: #0f172a; -fx-border-color: #475569; -fx-border-radius: 6; -fx-background-radius: 6;"/>
+
+            <Label text="Дата рождения:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+            <DatePicker fx:id="dpBirthDate" GridPane.rowIndex="4" GridPane.columnIndex="1" maxWidth="Infinity"
+                        style="-fx-background-color: #0f172a; -fx-border-color: #475569; -fx-border-radius: 6;"/>
+        </GridPane>
+    </VBox>
+
+    <!-- Выбор курса и формы обучения -->
+    <VBox spacing="10" style="-fx-background-color: #1e293b; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #334155; -fx-border-radius: 10;">
+        <fx:define>
+            <ToggleGroup fx:id="courseGroup"/>
+            <ToggleGroup fx:id="studyFormGroup"/>
+        </fx:define>
+
+        <VBox spacing="5">
+            <Label text="Курс:" style="-fx-font-weight: bold; -fx-text-fill: #c084fc;"/>
+            <HBox spacing="15">
+                <RadioButton fx:id="rbCourse1" text="1" toggleGroup="$courseGroup" style="-fx-text-fill: #f8fafc;"/>
+                <RadioButton fx:id="rbCourse2" text="2" toggleGroup="$courseGroup" style="-fx-text-fill: #f8fafc;"/>
+                <RadioButton fx:id="rbCourse3" text="3" toggleGroup="$courseGroup" style="-fx-text-fill: #f8fafc;"/>
+                <RadioButton fx:id="rbCourse4" text="4" toggleGroup="$courseGroup" style="-fx-text-fill: #f8fafc;"/>
+            </HBox>
+        </VBox>
+
+        <Separator style="-fx-opacity: 0.2;"/>
+
+        <VBox spacing="5">
+            <Label text="Форма обучения:" style="-fx-font-weight: bold; -fx-text-fill: #c084fc;"/>
+            <HBox spacing="15">
+                <RadioButton fx:id="rbFullTime" text="Очная" toggleGroup="$studyFormGroup" style="-fx-text-fill: #f8fafc;"/>
+                <RadioButton fx:id="rbOnline" text="Дистанционная" toggleGroup="$studyFormGroup" style="-fx-text-fill: #f8fafc;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- Дополнительно и Согласие -->
+    <VBox spacing="10" style="-fx-background-color: #1e293b; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #334155; -fx-border-radius: 10;">
+        <Label text="Дополнительно:" style="-fx-font-weight: bold; -fx-text-fill: #c084fc;"/>
+        <HBox spacing="15">
+            <CheckBox fx:id="chkDormitory" text="Общежитие" style="-fx-text-fill: #f8fafc;"/>
+            <CheckBox fx:id="chkScholarship" text="Стипендия" style="-fx-text-fill: #f8fafc;"/>
+            <CheckBox fx:id="chkActivist" text="Активист" style="-fx-text-fill: #f8fafc;"/>
+        </HBox>
+        <Separator style="-fx-opacity: 0.2;"/>
+        <CheckBox fx:id="chkConsent" text="Согласен на обработку персональных данных*" style="-fx-font-weight: bold; -fx-text-fill: #34d399;"/>
+    </VBox>
+
+    <!-- Кнопки управления -->
+    <HBox spacing="12" alignment="CENTER" style="-fx-padding: 5 0 5 0;">
+        <Button fx:id="btnCreate" text="Сформировать" onAction="#onCreateClick"
+                style="-fx-background-color: #9333ea; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+        <Button text="Очистить" onAction="#onClearClick"
+                style="-fx-background-color: #334155; -fx-text-fill: #f8fafc; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+        <Button text="Выход" onAction="#onExitClick"
+                style="-fx-background-color: #f43f5e; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 16; -fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- Результат -->
+    <VBox spacing="5" style="-fx-background-color: #064e3b; -fx-background-radius: 10; -fx-padding: 12; -fx-border-color: #059669; -fx-border-radius: 10;" VBox.vgrow="ALWAYS">
+        <Label text="Результат:" style="-fx-font-weight: bold; -fx-text-fill: #6ee7b7;"/>
+        <Label fx:id="lblResult" text="Анкета не заполнена" wrapText="true" style="-fx-text-fill: #ecfdf5;"/>
+    </VBox>
+</VBox>
