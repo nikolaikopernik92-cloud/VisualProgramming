@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kz.atu.lab10.NotesController">
+
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="12">
+            <VBox>
+                <Label text="КИНОТЕКА" styleClass="app-title"/>
+                <Label text="Личный список фильмов" styleClass="app-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnOpen" text="Открыть JSON" styleClass="header-btn" onAction="#onOpen"/>
+            <Button fx:id="btnSave" text="Сохранить JSON" styleClass="header-btn" onAction="#onSave"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" prefWidth="340" styleClass="panel">
+            <BorderPane.margin><Insets top="14" right="7" bottom="14" left="14"/></BorderPane.margin>
+            <TextField fx:id="txtSearch" promptText="Поиск: название, режиссёр, актёр"/>
+            <HBox spacing="8">
+                <ComboBox fx:id="cmbFilter" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="cmbSort" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <ListView fx:id="listNotes" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="8" styleClass="panel">
+            <BorderPane.margin><Insets top="14" right="14" bottom="14" left="7"/></BorderPane.margin>
+
+            <Label text="НАЗВАНИЕ" styleClass="field-caption"/>
+            <TextField fx:id="txtTitle" promptText="Название фильма"/>
+
+            <HBox spacing="12">
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="РЕЖИССЁР / АВТОР" styleClass="field-caption"/>
+                    <TextField fx:id="txtDirector" promptText="Кто снял фильм"/>
+                </VBox>
+                <VBox spacing="8" prefWidth="210">
+                    <Label text="СТАТУС" styleClass="field-caption"/>
+                    <ComboBox fx:id="cmbStatus" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+
+            <Label text="В РОЛЯХ" styleClass="field-caption"/>
+            <TextField fx:id="txtCast" promptText="Актёры через запятую"/>
+
+            <Label text="ОЦЕНКА" styleClass="field-caption"/>
+            <HBox spacing="14" alignment="CENTER_LEFT">
+                <Slider fx:id="sldRating" min="0" max="10" value="0" majorTickUnit="1"
+                        minorTickCount="0" snapToTicks="true" showTickMarks="true"
+                        HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblRating" styleClass="rating-big" minWidth="210"/>
+            </HBox>
+
+            <Label text="КРАТКОЕ ОПИСАНИЕ" styleClass="field-caption"/>
+            <TextArea fx:id="txtBody" promptText="О чём фильм, ваши впечатления" wrapText="true"
+                      VBox.vgrow="ALWAYS"/>
+
+            <HBox spacing="10">
+                <Button fx:id="btnAdd" text="Добавить" styleClass="primary" onAction="#onAdd"/>
+                <Button fx:id="btnEdit" text="Изменить" onAction="#onEdit"/>
+                <Button fx:id="btnClear" text="Очистить форму" onAction="#onClear"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnDelete" text="Удалить" styleClass="danger" onAction="#onDelete"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox styleClass="statusbar" alignment="CENTER_LEFT">
+            <Label fx:id="lblStatus" text="Готово"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblStats"/>
+        </HBox>
+    </bottom>
+</BorderPane>
