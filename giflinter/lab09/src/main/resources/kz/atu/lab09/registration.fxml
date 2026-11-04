@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab09.RegistrationController"
+            stylesheets="@validation.css">
+    <top>
+        <VBox styleClass="header" spacing="2">
+            <Label text="Заказ печати документов" styleClass="header-title"/>
+            <Label text="Заполните форму: все поля проверяются автоматически" styleClass="header-subtitle"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14">
+            <padding><Insets top="18" right="22" bottom="8" left="22"/></padding>
+            <VBox styleClass="card" spacing="12">
+                <Label text="Новый заказ" styleClass="section-title"/>
+                <GridPane hgap="16" vgap="3">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="130" prefWidth="140"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+                <Label text="Заказчик (ФИО)" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="txtName" promptText="Иванов Иван Иванович" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label fx:id="lblNameError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Email" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="txtEmail" promptText="name@example.kz" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label fx:id="lblEmailError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="ID заказа" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextField fx:id="txtOrderId" promptText="PR-1234" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Label fx:id="lblOrderIdError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label text="Страниц" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                <TextField fx:id="txtPages" promptText="от 1 до 500" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                <Label fx:id="lblPagesError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                <Label text="Копий" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                <TextField fx:id="txtCopies" promptText="от 1 до 5" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                <Label fx:id="lblCopiesError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                <Label text="Формат печати" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+                <ComboBox fx:id="cmbFormat" promptText="Выберите формат" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                <Label fx:id="lblFormatError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                <Label text="Согласие" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+                <CheckBox fx:id="chkConsent" text="Согласен на обработку данных" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+                <Label fx:id="lblConsentError" styleClass="error-label" minHeight="16" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+                </GridPane>
+                <HBox spacing="10">
+                    <Button fx:id="btnRegister" text="Зарегистрировать" styleClass="btn-primary" onAction="#onRegister"/>
+                    <Button text="Очистить" styleClass="btn-secondary" onAction="#onClear"/>
+                    <Button text="Сохранить CSV" styleClass="btn-success" onAction="#onSaveCsv"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox spacing="8">
+            <padding><Insets top="6" right="22" bottom="20" left="22"/></padding>
+            <Label text="Принятые заказы" styleClass="section-title"/>
+            <TableView fx:id="tblOrders" prefHeight="210">
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colId" text="ID"/>
+                    <TableColumn fx:id="colName" text="ФИО"/>
+                    <TableColumn fx:id="colEmail" text="Email"/>
+                    <TableColumn fx:id="colPages" text="Страниц"/>
+                    <TableColumn fx:id="colCopies" text="Копий"/>
+                    <TableColumn fx:id="colFormat" text="Формат"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </bottom>
+</BorderPane>
