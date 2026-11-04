@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: #12121c;
+    -fx-font-family: "Segoe UI", "System";
+    -fx-font-size: 13px;
+    -fx-text-fill: #e8e8f0;
+    -fx-control-inner-background: #1e1e2e;
+    -fx-text-box-border: #2f2f48;
+    -fx-focus-color: #e50914;
+    -fx-faint-focus-color: transparent;
+}
+
+.label { -fx-text-fill: #cfcfe0; }
+
+/* ---------- шапка ---------- */
+.header {
+    -fx-background-color: linear-gradient(to right, #6d0c1a, #c4161c 55%, #3a0a14);
+    -fx-padding: 14 22 14 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 14, 0, 0, 3);
+}
+.app-title { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white; }
+.app-subtitle { -fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.75); }
+
+/* ---------- панели ---------- */
+.panel {
+    -fx-background-color: #181826;
+    -fx-background-radius: 14;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 10, 0, 0, 2);
+}
+.field-caption { -fx-text-fill: #8a8aa8; -fx-font-size: 11px; -fx-font-weight: bold; }
+
+/* ---------- кнопки ---------- */
+.button {
+    -fx-background-color: #2a2a40;
+    -fx-text-fill: #e8e8f0;
+    -fx-background-radius: 8;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+.button:hover { -fx-background-color: #3a3a58; }
+.button.header-btn { -fx-background-color: rgba(255,255,255,0.16); -fx-text-fill: white; }
+.button.header-btn:hover { -fx-background-color: rgba(255,255,255,0.30); }
+.button.primary { -fx-background-color: #e50914; -fx-text-fill: white; -fx-font-weight: bold; }
+.button.primary:hover { -fx-background-color: #ff2a35; }
+.button.danger { -fx-background-color: #3a1a22; -fx-text-fill: #ff7b86; }
+.button.danger:hover { -fx-background-color: #5a1f2b; }
+
+/* ---------- поля ввода ---------- */
+.text-field, .text-area {
+    -fx-text-fill: #f0f0f8;
+    -fx-prompt-text-fill: #6c6c86;
+    -fx-highlight-fill: #e50914;
+    -fx-background-radius: 8, 8;
+}
+.text-field { -fx-padding: 8 10 8 10; }
+.text-area .content { -fx-background-radius: 8; }
+
+.combo-box-base {
+    -fx-background-color: #1e1e2e;
+    -fx-background-radius: 8;
+    -fx-border-color: #2f2f48;
+    -fx-border-radius: 8;
+}
+.combo-box-base:hover, .combo-box-base:focused { -fx-border-color: #e50914; }
+.combo-box .list-cell { -fx-text-fill: #f0f0f8; }
+.combo-box .arrow-button .arrow { -fx-background-color: #cfcfe0; }
+.combo-box-popup > .list-view {
+    -fx-background-color: #1e1e2e;
+    -fx-border-color: #2f2f48;
+}
+
+/* ---------- слайдер ---------- */
+.slider .track { -fx-background-color: #2f2f48; -fx-background-radius: 4; }
+.slider .thumb { -fx-background-color: #f5c518; -fx-background-radius: 10; }
+.slider .axis { -fx-tick-label-fill: #8a8aa8; }
+.slider .axis .axis-tick-mark, .slider .axis .axis-minor-tick-mark { -fx-stroke: #4a4a66; }
+.rating-big { -fx-text-fill: #f5c518; -fx-font-size: 17px; -fx-font-weight: bold; }
+
+/* ---------- список ---------- */
+.list-view {
+    -fx-background-color: #14141f;
+    -fx-background-radius: 10;
+    -fx-border-color: #2a2a40;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+}
+.list-cell, .list-cell:odd, .list-cell:even {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e8e8f0;
+    -fx-padding: 8 10 8 10;
+    -fx-background-radius: 8;
+}
+.list-cell:filled:hover { -fx-background-color: #232338; }
+.list-cell:filled:selected, .list-cell:filled:selected:focused {
+    -fx-background-color: #3a1520;
+    -fx-border-color: #e50914;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 8;
+}
+.film-title { -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; }
+.film-meta { -fx-text-fill: #9a9ab8; -fx-font-size: 11px; }
+.stars { -fx-text-fill: #f5c518; -fx-font-size: 12px; }
+
+.chip { -fx-padding: 2 9 2 9; -fx-background-radius: 10; -fx-font-size: 10px; -fx-font-weight: bold; }
+.chip-want { -fx-background-color: #232c4d; -fx-text-fill: #8fb0ff; }
+.chip-watching { -fx-background-color: #4a3a12; -fx-text-fill: #ffc857; }
+.chip-watched { -fx-background-color: #16402b; -fx-text-fill: #5fe0a0; }
+
+/* ---------- строка состояния ---------- */
+.statusbar { -fx-background-color: #0d0d16; -fx-padding: 9 22 9 22; }
+.statusbar .label { -fx-text-fill: #9a9ab8; }
