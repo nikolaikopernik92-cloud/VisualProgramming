@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab08.MainController">
+   <top>
+      <VBox>
+         <MenuBar>
+            <Menu text="Файл">
+               <MenuItem onAction="#onOpen" text="Открыть...">
+                  <accelerator><KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+               </MenuItem>
+               <MenuItem onAction="#onSave" text="Сохранить">
+                  <accelerator><KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+               </MenuItem>
+               <MenuItem onAction="#onSaveAs" text="Сохранить как...">
+                  <accelerator><KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP"/></accelerator>
+               </MenuItem>
+               <SeparatorMenuItem/>
+               <MenuItem onAction="#onExit" text="Выход">
+                  <accelerator><KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+               </MenuItem>
+            </Menu>
+            <Menu text="Рецепт">
+               <MenuItem onAction="#onAdd" text="Добавить..."/>
+               <MenuItem onAction="#onEdit" text="Редактировать..."/>
+               <MenuItem onAction="#onDelete" text="Удалить"/>
+            </Menu>
+            <Menu text="Настройки">
+               <MenuItem onAction="#onChooseColor" text="Цвет текста..."/>
+            </Menu>
+         </MenuBar>
+         <ToolBar>
+            <Button onAction="#onAdd" text="Добавить"/>
+            <Button onAction="#onEdit" text="Изменить"/>
+            <Button onAction="#onDelete" text="Удалить"/>
+            <Separator orientation="VERTICAL"/>
+            <Button onAction="#onAbout" text="О программе"/>
+         </ToolBar>
+      </VBox>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.3">
+         <ListView fx:id="lvRecipes"/>
+         <TextArea fx:id="txtNotes" editable="false" wrapText="true"/>
+      </SplitPane>
+   </center>
+   <bottom>
+      <Label fx:id="lblStatus" text="Готово">
+         <padding><Insets bottom="4" left="8" right="8" top="4"/></padding>
+      </Label>
+   </bottom>
+</BorderPane>

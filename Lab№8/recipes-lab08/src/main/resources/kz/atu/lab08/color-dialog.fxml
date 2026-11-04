@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" alignment="CENTER" prefWidth="280" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab08.ColorDialogController">
+   <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+   <Label text="Выберите цвет текста"/>
+   <ColorPicker fx:id="colorPicker"/>
+   <HBox alignment="CENTER" spacing="8">
+      <Button defaultButton="true" onAction="#onApply" text="Применить"/>
+      <Button cancelButton="true" onAction="#onCancel" text="Отмена"/>
+   </HBox>
+</VBox>

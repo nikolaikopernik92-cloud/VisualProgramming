@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="8" prefWidth="460" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kz.atu.lab08.RecipeDialogController">
+   <padding><Insets bottom="12" left="12" right="12" top="12"/></padding>
+   <Label text="Название"/>
+   <TextField fx:id="txtTitle"/>
+   <Label text="Ингредиенты (по одному в строке)"/>
+   <TextArea fx:id="txtIngredients" prefRowCount="5" wrapText="true"/>
+   <Label text="Приготовление"/>
+   <TextArea fx:id="txtSteps" prefRowCount="6" wrapText="true"/>
+   <HBox alignment="CENTER_RIGHT" spacing="8">
+      <Button defaultButton="true" onAction="#onApply" text="Сохранить"/>
+      <Button cancelButton="true" onAction="#onCancel" text="Отмена"/>
+   </HBox>
+</VBox>
