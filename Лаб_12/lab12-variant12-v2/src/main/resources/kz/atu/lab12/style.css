@@ -1,0 +1,179 @@
+.root-pane {
+    -fx-background-color: #f3f4f6;
+    -fx-font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.top-section {
+    -fx-padding: 16 20 12 20;
+}
+
+.app-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+.app-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Карточки статистики */
+.stat-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 8;
+    -fx-padding: 10 14 10 14;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #6b7280;
+    -fx-font-weight: bold;
+}
+
+.stat-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+.stat-new .stat-value { -fx-text-fill: #2563eb; }
+.stat-progress .stat-value { -fx-text-fill: #d97706; }
+.stat-closed .stat-value { -fx-text-fill: #059669; }
+
+/* Таблица */
+.table-container {
+    -fx-padding: 0 20 0 20;
+}
+
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f9fafb;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #e5e7eb transparent;
+    -fx-padding: 8 6 8 6;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #374151;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-cell-size: 38px;
+    -fx-border-color: transparent transparent #f3f4f6 transparent;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #111827;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #111827;
+}
+
+/* Бейджи */
+.badge {
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-high { -fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; }
+.badge-medium { -fx-background-color: #fef3c7; -fx-text-fill: #b45309; }
+.badge-low { -fx-background-color: #e0f2fe; -fx-text-fill: #0369a1; }
+
+.badge-new { -fx-background-color: #dbeafe; -fx-text-fill: #1d4ed8; }
+.badge-progress { -fx-background-color: #fef3c7; -fx-text-fill: #b45309; }
+.badge-closed { -fx-background-color: #d1fae5; -fx-text-fill: #047857; }
+
+/* Нижняя форма */
+.bottom-section {
+    -fx-padding: 12 20 14 20;
+}
+
+.form-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 8;
+    -fx-padding: 14 16 14 16;
+}
+
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.field-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4b5563;
+}
+
+.text-field, .combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10 6 10;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #2563eb;
+}
+
+/* Кнопки */
+.button {
+    -fx-background-radius: 6;
+    -fx-padding: 7 14 7 14;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: #ffffff;
+}
+.btn-primary:hover { -fx-background-color: #1d4ed8; }
+
+.btn-warning {
+    -fx-background-color: #f59e0b;
+    -fx-text-fill: #ffffff;
+}
+.btn-warning:hover { -fx-background-color: #d97706; }
+
+.btn-danger {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: #ffffff;
+}
+.btn-danger:hover { -fx-background-color: #dc2626; }
+
+.btn-secondary {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6;
+    -fx-text-fill: #374151;
+}
+.btn-secondary:hover { -fx-background-color: #f9fafb; }
+
+.status-bar-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}

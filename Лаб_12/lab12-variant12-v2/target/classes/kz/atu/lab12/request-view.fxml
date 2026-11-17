@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab12.controller.RequestController"
+            styleClass="root-pane">
+
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ: ЗАГОЛОВОК, СТАТИСТИКА И ФИЛЬТРЫ -->
+    <top>
+        <VBox spacing="14" styleClass="top-section">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Каталог заявок" styleClass="app-title"/>
+                    <Label text="Управление обращениями и контроль статусов (Вариант №12)" styleClass="app-subtitle"/>
+                </VBox>
+                <Button text="Экспорт в CSV" onAction="#onExportCsv" styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- Карточки статистики -->
+            <HBox spacing="12">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                    <Label text="Всего заявок" styleClass="stat-label"/>
+                    <Label fx:id="lblTotalCount" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card, stat-new" HBox.hgrow="ALWAYS">
+                    <Label text="Новые" styleClass="stat-label"/>
+                    <Label fx:id="lblNewCount" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card, stat-progress" HBox.hgrow="ALWAYS">
+                    <Label text="В работе" styleClass="stat-label"/>
+                    <Label fx:id="lblInProgressCount" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-card, stat-closed" HBox.hgrow="ALWAYS">
+                    <Label text="Закрыты" styleClass="stat-label"/>
+                    <Label fx:id="lblClosedCount" text="0" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- Панель поиска и фильтрации -->
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <TextField fx:id="txtSearch" promptText="Поиск по теме заявки..." HBox.hgrow="ALWAYS" styleClass="search-field"/>
+                <ComboBox fx:id="filterPriority" prefWidth="165"/>
+                <ComboBox fx:id="filterStatus" prefWidth="155"/>
+                <Button text="Сбросить" onAction="#onRefresh" styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ: ТАБЛИЦА -->
+    <center>
+        <VBox styleClass="table-container">
+            <TableView fx:id="tableRequests" VBox.vgrow="ALWAYS">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" minWidth="55" maxWidth="65" style="-fx-alignment: CENTER;"/>
+                    <TableColumn fx:id="colTheme" text="Тема заявки" minWidth="260"/>
+                    <TableColumn fx:id="colPriority" text="Приоритет" minWidth="120" maxWidth="140" style="-fx-alignment: CENTER;"/>
+                    <TableColumn fx:id="colStatus" text="Статус" minWidth="120" maxWidth="140" style="-fx-alignment: CENTER;"/>
+                    <TableColumn fx:id="colCreatedAt" text="Создано" minWidth="130" maxWidth="150" style="-fx-alignment: CENTER;"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- НИЖНЯЯ ЧАСТЬ: КАРТОЧКА РЕДАКТИРОВАНИЯ И СТАТУС-БАР -->
+    <bottom>
+        <VBox spacing="12" styleClass="bottom-section">
+            <VBox spacing="10" styleClass="form-card">
+                <Label text="Карточка заявки" styleClass="section-header"/>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Тема заявки *" styleClass="field-label"/>
+                        <TextField fx:id="txtTheme" promptText="Опишите суть проблемы или задачи..."/>
+                    </VBox>
+                    <VBox spacing="4" prefWidth="160">
+                        <Label text="Приоритет" styleClass="field-label"/>
+                        <ComboBox fx:id="cmbPriority" maxWidth="Infinity"/>
+                    </VBox>
+                    <VBox spacing="4" prefWidth="160">
+                        <Label text="Статус" styleClass="field-label"/>
+                        <ComboBox fx:id="cmbStatus" maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="+ Добавить заявку" onAction="#onAdd" styleClass="btn-primary"/>
+                    <Button fx:id="btnUpdate" text="Сохранить изменения" onAction="#onUpdate" disable="true" styleClass="btn-warning"/>
+                    <Button fx:id="btnDelete" text="Удалить" onAction="#onDelete" disable="true" styleClass="btn-danger"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Очистить форму" onAction="#clearFields" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <Label fx:id="lblStatusMessage" text="Готово к работе" styleClass="status-bar-text"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
